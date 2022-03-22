@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="488.0" prefWidth="769.0" stylesheets="@../darkTheme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.View.Employee.EmployeeListViewController">
+   <children>
+      <GridPane>
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER" GridPane.columnIndex="1">
+               <children>
+                  <Label text="Employees">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Button cancelButton="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#backButton" prefHeight="46.0" prefWidth="46.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="61.0" fitWidth="62.0" mouseTransparent="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Icons/closeWindowIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <GridPane.margin>
+                  <Insets left="15.0" top="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+      <HBox alignment="CENTER">
+         <children>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="185.2" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="185.2" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefWidth="177.0">
+                     <children>
+                        <Label text="Search: ">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <children>
+                        <TextField fx:id="searchBox" onKeyTyped="#searchBoxKeyTyped" prefHeight="26.0" prefWidth="286.0" promptText="(By anyhing) Example: Lewandowsky" />
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#searchButton" prefHeight="26.0" prefWidth="38.0">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="30.0" mouseTransparent="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/icons8-search-100.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <TableView fx:id="employeeTable" editable="true" prefHeight="342.0" prefWidth="697.0">
+                     <columns>
+                        <TableColumn fx:id="userIDColumn" prefWidth="74.39998936653137" text="User ID" />
+                        <TableColumn fx:id="nameColumn" minWidth="-1.0" prefWidth="174.4000015258789" text="Name" />
+                        <TableColumn fx:id="surnameColumn" prefWidth="208.8000030517578" text="Surname" />
+                        <TableColumn fx:id="roleColumn" minWidth="0.0" prefWidth="131.19998168945312" text="Role" />
+                     </columns>
+                  </TableView>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openButton" prefWidth="72.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="10.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitWidth="50.0" mouseTransparent="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Icons/openArrowInIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addButton" prefWidth="72.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="10.0" top="15.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView mouseTransparent="true">
+                                 <image>
+                                    <Image url="@../Icons/addPersonIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editButton" prefWidth="72.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="15.0" left="10.0" top="15.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView mouseTransparent="true">
+                                 <image>
+                                    <Image url="@../Icons/editIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#removeButton" prefWidth="72.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="10.0" top="15.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView mouseTransparent="true">
+                                 <image>
+                                    <Image url="@../Icons/removePersonIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="BOTTOM_LEFT">
+         <children>
+            <Label fx:id="errorLabel" text="errorLabel" textFill="RED" />
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+   </padding>
+</VBox>
